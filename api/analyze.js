@@ -8,8 +8,11 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.post("/analyze", async (req, res) => {
+  console.log("Received POST request to /analyze");
   const { email } = req.body;
   const domain = email.split("@")[1];
+
+  console.log(`Extracted domain: ${domain}`);
 
   const browser = await puppeteer.launch({
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
