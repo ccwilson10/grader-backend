@@ -26,7 +26,4 @@ app.post("/analyze", async (req, res) => {
   res.json({ analysis: "Fake analysis result for demo purposes" });
 });
 
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+module.exports = app;
