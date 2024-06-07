@@ -34,4 +34,4 @@ app.post('/analyze', async (req, res) => {
   }
 });
 
-module.exports​⬤
+module.exports = app;
