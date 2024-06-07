@@ -11,7 +11,9 @@ app.post("/analyze", async (req, res) => {
   const { email } = req.body;
   const domain = email.split("@")[1];
 
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({
+    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+  });
   const page = await browser.newPage();
   await page.goto(`https://${domain}`);
   const screenshot = await page.screenshot({ encoding: "base64" });
